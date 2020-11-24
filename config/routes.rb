@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 Spree::Core::Engine.routes.draw do
-  # Use custom frontend
-  # if SolidusSupport.frontend_available? && Spree::Auth::Config.draw_frontend_routes
-  if Spree::Auth::Config.draw_frontend_routes
+  if SolidusSupport.frontend_available? && Spree::Auth::Config.draw_frontend_routes
     devise_for(:spree_user, {
       class_name: 'Spree::User',
       controllers: {

@@ -6,12 +6,11 @@ module Spree
       if receiver.send(:respond_to?, :helper_method)
         receiver.send(:helper_method, :spree_current_user)
 
-        # Use custom frontend
-        # if SolidusSupport.frontend_available?
+        if SolidusSupport.frontend_available?
           receiver.send(:helper_method, :spree_login_path)
           receiver.send(:helper_method, :spree_signup_path)
           receiver.send(:helper_method, :spree_logout_path)
-        # end
+        end
       end
     end
 
@@ -19,11 +18,10 @@ module Spree
       current_spree_user
     end
 
-    # Use custom frontend
-    # if SolidusSupport.frontend_available?
+    if SolidusSupport.frontend_available?
       delegate :login_path, :signup_path, :logout_path,
                to: :spree,
                prefix: :spree
-    # end
+    end
   end
 end

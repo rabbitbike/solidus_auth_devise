@@ -7,6 +7,8 @@ require 'devise'
 require 'devise-encryptable'
 require 'cancan'
 
+# Enable custom frontend
+require 'spree/auth/frontend'
 require 'spree/auth/devise'
 require 'spree/auth/version'
 require 'spree/auth/engine'
